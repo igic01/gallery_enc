@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="/views_enchantments/style/style.css">
+</head>
+
+<body id="index">
+  <div id="fixed_background">
+    Gallery
+  </div>
+  <nav class="glass">
+    <h1>Gallery</h1>
+    <% if (logged){ %>
+    <a href="/my_page">My page</a>
+    <% }else { %>
+    <a href="/login">Log in</a>
+    <% } %>
+  </nav>
+  <div id="posts-container" class="glass">
+    <% 
+      // Generate a new array with posts
+      let posts = [];
+      users.forEach(user => {
+        if (user.photos && user.photos.length > 0) {
+          user.photos.forEach(photo => {
+            posts.push({
+              photo: `/uploads_dec/${photo}.png`,
+              photo_name: `${photo}`,
+              link: `/photo/${photo}`,
+              user: user.username,
+              user_info: user.user_info || 'No description available'
+            });
+          });
+        }
+      });
+
+      // Shuffle the posts array to randomize order
+      posts = posts.sort(() => Math.random() - 0.5);
+
+      // Render the posts
+      posts.forEach(post => { 
+    %>
+    <div class="post">
+      <a href="<%= post.link %>">
+        <img src="<%= post.photo %>" alt="Photo by <%= post.user %>" width="200" />
+        <p><%= post.photo_name %></p>
+      </a>
+      <div class="post-info">
+        <span>
+          <p>Post by <a href="/artist/<%= post.user %>"><%= post.user %></a></p>
+          <a href="<%= post.link %>">Decrypt it</a>
+        </span>
+        <p>Info about the artist: <%= post.user_info %></p>
+      </div>
+    </div>
+    <% }); %>
+  </div>
+</body>
+
+</html>

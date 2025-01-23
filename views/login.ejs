@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="/views_enchantments/style/style.css">
+</head>
+
+<body>
+  <main id="login">
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+      <p>Username:</p>
+      <input type="text" id="username" name="username" placeholder="e.g. purple_monkey77" required>
+      <p>Password:</p>
+      <input type="password" id="password" name="password" placeholder="e.g. 12345678" required>
+      <span>
+        <input type="checkbox" id="togglePassword">
+        <p>Toggle for password view:</p>
+      </span>
+      <% if (error) { %>
+      <div class="error-message">
+        <%= error %>
+      </div>
+      <% } %>
+      <button type="submit">Login</button>
+    </form>
+    <p>If you don't have acc you can create one <a href="./register">here</a></p>
+  </main>
+
+  <script>
+    // toggle password visibility
+    const passwordField = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
+
+    togglePassword.addEventListener('change', function() {
+      passwordField.type = this.checked ? 'text' : 'password';
+    });
+  </script>
+</body>
+
+</html>

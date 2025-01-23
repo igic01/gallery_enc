@@ -1,0 +1,134 @@
+#my_page {
+    padding: 64px;
+}
+
+#my_page>header {
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+#my_page>header>span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#my_page>header>span>a {
+    text-decoration: none;
+    color: black;
+    padding: 8px 10px;
+    background-color: lightgray;
+}
+
+#my_page>header>form {
+    width: fit-content;
+    position: relative;
+}
+
+#my_page>header>form>textarea {
+    resize: none;
+    height: 100px;
+    width: 400px;
+    border: 0;
+    border-bottom: 1px solid black;
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+#my_page>header>form>button {
+    position: absolute;
+    bottom: 5px;
+    right: 0px;
+    z-index: 10;
+    padding: 4px 10px;
+    border: 0;
+}
+
+#my_page>section {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    position: absolute;
+    padding: 20px;
+    border-radius: 16px;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#my_page>section>.uploading>h2 {
+    margin-bottom: 20px;
+}
+
+#my_page>section>.uploading>form {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    gap: 4px;
+}
+
+#my_page>section>.uploading>form>input[type="text"],
+#my_page>section>.uploading>form>input[type="password"] {
+    padding: 8px 10px;
+}
+
+#my_page>section>.uploading>form>button {
+    border: 0;
+    padding: 8px 10px;
+}
+
+#my_page>section>.processing {
+    display: flex;
+    gap: 10px;
+}
+
+#my_page>section>.processing>.item {
+    display: flex;
+    flex-direction: column;
+}
+
+#my_page>section>.processing>.item>.canvas-container {
+    overflow-x: scroll;
+    width: 600px;
+}
+
+#my_page>section>.processing>.item>.canvas-container>canvas {
+    border: 1px solid black;
+    margin: 10px 0;
+    height: 300px;
+    width: auto;
+}
+
+#my_page>#gallery {
+    margin-top: 80px;
+}
+
+#my_page>#gallery>a {
+    position: relative;
+}
+
+#my_page>#gallery>a>form {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#my_page>#gallery>a>form>button {
+    background-color: transparent;
+    border: 0;
+    font-size: 2em;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+#my_page>#gallery>#add_new_photo {
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 300px;
+    font-size: 8em;
+    cursor: pointer;
+}

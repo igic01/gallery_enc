@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  <link rel="stylesheet" href="/views_enchantments/style/style.css">
+</head>
+
+<body>
+  <main id="register">
+    <h1>Registration</h1>
+
+    <div class="container">
+      <form action="/register" method="POST">
+        <p>Username:</p>
+        <input type="text" id="username" name="username" placeholder="e.g. purple_monkey77" required>
+
+        <p>Description about yourself:</p>
+        <textarea type="text" id="user_info" name="user_info" placeholder="e.g. Hello I'm purple_monkey77 and my mail is purple.monkey77@jungle.com" rows="4" required></textarea>
+
+        <p>Password:</p>
+        <input type="password" id="password" name="password" placeholder="e.g. 12345678" required>
+        <span>
+          <input type="checkbox" id="togglePassword">
+          <p>Toggle for password view:</p>
+        </span>
+        <% if (error) { %>
+        <div class="error-message">
+          <%= error %>
+        </div>
+        <% } %>
+        <button type="submit">Create acc</button>
+        <p>If you already have acc you can log in <a href="./login">here</a></p>
+      </form>
+      <!-- gif by @adampizurny -->
+      <img src="/views_enchantments/photos/face.gif" alt="Gif of a face in black and whtie">
+    </div>
+  </main>
+
+
+
+  <script>
+    // toggle password visibility
+    const passwordField = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
+
+    togglePassword.addEventListener('change', function() {
+      passwordField.type = this.checked ? 'text' : 'password';
+    });
+  </script>
+</body>
+
+</html>

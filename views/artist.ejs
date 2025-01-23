@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload and Encrypt PNG</title>
+  <link rel="stylesheet" href="/views_enchantments/style/style.css">
+</head>
+
+<body id="my_page">
+
+  <header>
+    <span>
+      <h1><%= username %></h1>
+    </span>
+    <form action="/update_user_info" method="POST">
+      <p name="user_info" id="user_info"><%= user_info.trim() %></p>
+    </form>
+  </header>
+
+  <div id="gallery">
+    <% photos.forEach(photo => {%>
+    <a href="/photo/<%= photo %>" ">
+      <img src=" /uploads_dec/<%= photo %>.png" alt="Encrypt photo" width="200" />
+    </a>
+    <% }) %>
+  </div>
+
+  <a href="/" id="back">➥</a>
+</body>
+
+</html>

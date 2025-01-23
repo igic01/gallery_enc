@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload and Encrypt PNG</title>
+  <link rel="stylesheet" href="/views_enchantments/style/style.css">
+</head>
+
+<body id="my_page">
+
+  <header>
+    <span>
+      <h1><%= username %></h1>
+      <a href="/logout">Log out</a>
+    </span>
+    <form action="/update_user_info" method="POST">
+      <textarea name="user_info" id="user_info"><%= user_info.trim() %></textarea>
+      <button type="submit">Update</button>
+    </form>
+  </header>
+
+  <section class="glass" id="secion_upload" style="display: none;">
+    <div class="uploading">
+      <h2>Upload and Encrypt PNG</h2>
+
+      <form id="uploadForm" enctype="multipart/form-data">
+        <label for="file">Choose a PNG file:</label>
+        <input type="file" id="file" name="file" accept="image/png" required>
+
+        <label for="photoName">Photo Name:</label>
+        <input type="text" id="photoName" name="photoName" placeholder="Enter photo name" required>
+
+        <label for="password">Encryption Password:</label>
+        <input type="password" id="password" placeholder="Enter encryption password" required>
+
+        <button type="button" id="processBtn">Process</button>
+        <button type="button" id="uploadBtn">Upload</button>
+      </form>
+    </div>
+
+    <div class="processing">
+      <div class="item">
+        <h3>Original Image</h3>
+        <div class="canvas-container">
+          <canvas id="originalCanvas"></canvas>
+        </div>
+      </div>
+      <div class="item">
+        <h3>Processed Image</h3>
+        <div class="canvas-container">
+          <canvas id="processedCanvas"></canvas>
+        </div>
+      </div>
+  </section>
+
+  <div id="gallery">
+    <p id="add_new_photo">+</p>
+    <% photos.forEach(photo => {%>
+    <a href="/photo/<%= photo %>" ">
+      <img src=" /uploads_dec/<%= photo %>.png" alt="Encrypt photo" width="200" />
+      <form action="/delete_photo" method="POST">
+        <input type="hidden" name="photo_name" value="<%= photo %>">
+        <button type="submit">🚽</button>
+      </form>
+    </a>
+    <% }) %>
+  </div>
+
+  <a href="/" id="back">➥</a>
+  <script>
+    document.getElementById("add_new_photo").addEventListener("click", function() {
+      const section = document.getElementById("secion_upload");
+      if (section.style.display === "none") {
+        section.style.display = "flex";
+      } else {
+        section.style.display = "none";
+      }
+    });
+  </script>
+  <script src="/views_enchantments/script/encrypt.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo with Decryption</title>
+  <link rel="stylesheet" href="/views_enchantments/style/style.css">
+</head>
+
+<body id="photo">
+  <div id="fixed_background">
+    Decrypt
+  </div>
+
+  <div class="container glass">
+    <header>
+      <img src="/uploads_dec/<%= photo %>.png" alt="<%= photo %>">
+    </header>
+
+    <div class="info">
+      <h1><%= photo %></h1>
+      <p>Uploaded by: <%= username %></p>
+      <p>User Info: <%= user_info %></p>
+    </div>
+
+
+    <div class="decryption">
+      <h2>Try to Decrypt Image</h2>
+      <label for="password">Decryption Password:
+        <input type="password" id="password" placeholder="e.g. 12345678">
+      </label>
+      <button id="decryptBtn">Decrypt Image</button>
+      <button id="downloadBtn" style="display:none;">Download as PNG</button>
+      <h3>Decrypted Image</h3>
+      <canvas id="decryptedCanvas"></canvas>
+    </div>
+  </div>
+
+
+  <a href="/" id="back">➥</a>
+  <script>
+    const photo_name = '<%= photo %>';
+  </script>
+  <script src="/views_enchantments/script/photo.js"></script>
+</body>
+
+</html>

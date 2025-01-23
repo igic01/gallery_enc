@@ -1,0 +1,57 @@
+#photo {
+    width: 640px;
+    margin: auto;
+}
+
+#photo>.container>header {
+    height: 100%;
+    width: 640px;
+}
+
+#photo>.container>header>img {
+    height: 100%;
+    width: 100%;
+}
+
+#photo>.container>.info {
+    padding: 10px;
+}
+
+#photo>.container>.info>h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#photo>.container>.info>p {
+    font-size: 1em;
+}
+
+#photo>.container>.decryption {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    flex-direction: column;
+}
+
+#photo>.container>.decryption>label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#photo>.container>.decryption>label>input {
+    padding: 8px 10px;
+}
+
+#photo>.container>.decryption>button {
+    padding: 8px 10px;
+    border: 0;
+}
+
+#photo>.container>.decryption>canvas {
+    border: 1px solid black;
+    margin: 10px 0;
+    margin: -10px;
+}
